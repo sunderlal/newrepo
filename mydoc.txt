@@ -1,0 +1,65 @@
+to merge any particular commit id 
+git cherry-pick ba0db96
+git commit -m "comment"
+
+to merge without maintaining all commits history
+git merge <branch to be merged>
+git commit -m "comment"
+
+merging feature branch summerizing all internal commits with a single merge commit
+git merge --squash <feature branch>
+git commit -m "comment"
+
+git branch (to see all branch and where the head is)
+
+git log (to see all commits history)
+
+git stash :> it is used to take backup of any file before commiting. we can take backup of multiple versions of the same file. it does two things; first it will take backup of uncommited files then it will undo the changes of same files.
+
+git stash (it takes backup in array form)
+git stash list (it shows the bckup array)
+git stash apply stash@<index> (to restore)
+git add .
+git commit -m "message"
+git stash clear (to clear remaining backup)
+
+reverting the chnages in workspace (means before commiting the changes) once we create the file in our workspace and add it to staging area, a temprary commit id is generated and head is pointing to this new temp id.we have three ways to restet the changes.
+
+git reset (default and it remove head from temp id to previous one and also it unstage) it is same as mixed mode
+
+git reset --soft (it just remove head from temp id to previous one and we cant see it)
+
+git reset --mixed (same as git reset)
+
+git reset --hard (it revert the changes in the file along with reverting head from repo and staging area)
+
+***************************************************************
+
+reverting changes from repository after commiting the changes
+
+suppose you have done some changes and did commit also but later while testing you found that the changes what you had done was not correct and you want to revert it back to previous commit then below command will revert back to previous content commiting a new id.
+
+git revert <commit id>
+
+after reverting if you want the changes to reflect in central repo as well then you have to push it to central then it will be updated there too.
+
+*****************************************************************
+cleaning or deleting untracked files which would be created generally during run time and were not be committed 
+
+git clean -n (it will show the ntracked files)
+git clean -f (it would delete the files from repo)
+**************************************************************
+
+git tag :> it is uded to name the commit id for our easy reference
+
+git tag -a <name> -m "comment" <commit id>
+
+git tag (it will show all the tags available)
+
+git show <tag or commit id> (it will show the details of that commit)
+
+note: one commit id an have more than one tag but 1 tag can not be shared for 2 or more commit ids
+we can add tags in central repo by pushing
+
+git push --tags (all tags will be pushed to central repo)
+
